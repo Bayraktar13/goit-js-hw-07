@@ -84,3 +84,6 @@ ul.addEventListener("click", (e) => {
     document.addEventListener("keydown", handleKeyDown);
   }
 });
+
+// Подключение ( https://basiclightbox.electerious.com/ ) basic lightbox библиотеки.
+// Подключить два файла https://www.jsdelivr.com/package/npm/basiclightbox?path=dist (js перед закрывающимся тегом </body> и css перед файлом стилей styles.css)
