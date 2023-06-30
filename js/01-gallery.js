@@ -5,28 +5,50 @@ console.log(galleryItems);
 
 const ul = document.querySelector(".gallery");
 
+//
+// Через append
+//
+
+// function createList(items) {
+//   const listItems = items.map((item) => {
+//     const li = document.createElement("li");
+//     li.classList.add("gallery__item");
+
+//     const a = document.createElement("a");
+//     a.classList.add("gallery__link");
+//     a.href = item.original;
+
+//     const img = document.createElement("img");
+//     img.classList.add("gallery__image");
+//     img.src = item.preview;
+//     img.alt = item.description;
+//     img.setAttribute("data-source", item.original);
+
+//     a.appendChild(img);
+//     li.appendChild(a);
+
+//     return li;
+//   });
+
+//   ul.append(...listItems);
+// }
+
+//
+// Черкз innderHTML
+//
 function createList(items) {
-  const listItems = items.map((item) => {
-    const li = document.createElement("li");
-    li.classList.add("gallery__item");
+  const listHTML = items
+    .map(
+      (item) =>
+        `<li class="gallery__item">
+          <a class="gallery__link" href="${item.original}">
+            <img class="gallery__image" src="${item.preview}" alt="${item.description}" data-source="${item.original}">
+          </a>
+        </li>`
+    )
+    .join("");
 
-    const a = document.createElement("a");
-    a.classList.add("gallery__link");
-    a.href = item.original;
-
-    const img = document.createElement("img");
-    img.classList.add("gallery__image");
-    img.src = item.preview;
-    img.alt = item.description;
-    img.setAttribute("data-source", item.original);
-
-    a.appendChild(img);
-    li.appendChild(a);
-
-    return li;
-  });
-
-  ul.append(...listItems);
+  ul.innerHTML = listHTML;
 }
 
 createList(galleryItems);
