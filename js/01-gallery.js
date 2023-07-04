@@ -36,6 +36,27 @@ const ul = document.querySelector(".gallery");
 //
 // Черкз innderHTML
 //
+// function createList(items) {
+//   const listHTML = items
+//     .map(
+//       (item) =>
+//         `<li class="gallery__item">
+//           <a class="gallery__link" href="${item.original}">
+//             <img class="gallery__image" src="${item.preview}" alt="${item.description}" data-source="${item.original}">
+//           </a>
+//         </li>`
+//     )
+//     .join("");
+
+//   ul.innerHTML = listHTML;
+// }
+
+// createList(galleryItems);
+
+//
+//
+// Через insertAdjacentHTML
+
 function createList(items) {
   const listHTML = items
     .map(
@@ -48,7 +69,7 @@ function createList(items) {
     )
     .join("");
 
-  ul.innerHTML = listHTML;
+  ul.insertAdjacentHTML("beforeend", listHTML);
 }
 
 createList(galleryItems);
